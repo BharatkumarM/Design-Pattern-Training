@@ -13,13 +13,24 @@ namespace ConsoleApp1
 			patientDataList = ptDataListProvider.GetPatientList();
 		}
 
-		public List<PatientData> GetPatientByName()
+		public List<PatientData> GetPatientsByNameAndAge()
+		{
+			CompositeFilter compositeFilter = new CompositeFilter();
+			NameFilter nameFilter = new NameFilter("abc");
+			compositeFilter.AddFilter(nameFilter);
+			AgeFilter ageFilter = new AgeFilter(25);
+			compositeFilter.AddFilter(ageFilter);
+
+			return compositeFilter.Filter(patientDataList);
+		}
+
+		public List<PatientData> GetPatientsByName()
 		{
 			NameFilter nameFilter = new NameFilter("abc");
 			return nameFilter.Filter(patientDataList);
 		}
 
-		public List<PatientData> GetPatientByAge()
+		public List<PatientData> GetPatientsByAge()
 		{
 			AgeFilter ageFilter = new AgeFilter(25);
 			return ageFilter.Filter(patientDataList);

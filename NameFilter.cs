@@ -6,10 +6,10 @@ namespace ConsoleApp1
 {
 	class NameFilter : ISearchFilter
 	{
-		private string name;
+		private string _name;
 		public NameFilter(string name)
 		{
-			this.name = name;
+			this._name = name;
 		}
 
 		public List<PatientData> Filter(List<PatientData> ptDataList)

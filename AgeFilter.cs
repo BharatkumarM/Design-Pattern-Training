@@ -6,10 +6,10 @@ namespace ConsoleApp1
 {
 	class AgeFilter : ISearchFilter
 	{
-		private int age;
+		private int _age;
 		public AgeFilter(int age)
 		{
-			this.age = age;
+			this._age = age;
 		}
 		public List<PatientData> Filter(List<PatientData> ptDataList)
 		{
